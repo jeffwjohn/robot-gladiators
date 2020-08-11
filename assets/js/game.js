@@ -189,7 +189,6 @@ var getPlayerName = function() {
     console.log("Your robot's name is " + name + ".");
     return name;
   };
-
 var playerInfo = {
     //name: window.prompt("What is your robot's name?"),
     name: getPlayerName(),
