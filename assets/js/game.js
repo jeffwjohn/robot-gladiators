@@ -15,29 +15,37 @@ var fightOrSkip = function () {
     //  return fightOrSkip();
     //  }
     //The conditional statement above with the "not" or "!" operator will act similarly to our original conditional if statement, which executes if a blank or null response is evaluated.
-
+    promptFight = promptFight.toLowerCase();
     // if user picks "skip" confirm and then stop the loop
-    if (promptFight === "skip" || promptFight === "SKIP") {
+    if (promptFight === "skip") {
+
         // confirm user wants to skip
         var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
         // if yes (true), leave fight
         if (confirmSkip) {
             window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
-            // subtract money from playerMoney for skipping
-            playerInfo.money = playerInfo.money - 10;
-            //shop()
-            break;
+            // subtract money from playerMoney for skipping, but don't let them go into the negative
+            playerInfo.money = Math.max(0, playerInfo.money - 10);
+
+            // return true if user wants to leave
+            return true;
         }
     }
+        return false;
 }
 
 var fight = function (enemy) {
 
 
-    while (enemy.health > 0 && playerInfo.health > 0) {
+    while (playerInfo.health > 0 && enemy.health > 0) {
+        // ask user if they'd like to fight or skip using fightOrSkip function
+        if (fightOrSkip()) {
+          // if true, leave fight by breaking loop
+          break;
+        }
 
-        fightOrSkip();
+        //fightOrSkip();
         //var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
         //console.log(promptFight);
 
@@ -201,7 +209,7 @@ var shop = function () {
 
             // call shop() again to force player to pick a valid option
             shop();
-            break;
+        //break;
     }
 };
 
