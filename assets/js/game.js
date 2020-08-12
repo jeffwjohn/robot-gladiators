@@ -113,7 +113,7 @@ var startGame = function () {
         if (playerInfo.health > 0) {
             // let user know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
             window.alert("Round " + (i + 1));
-            debugger;
+           
 
             // pick new enemy to fight based on the index of the enemy.names array
             var pickedEnemyObj = enemyInfo[i];
@@ -177,39 +177,27 @@ var endGame = function () {
 var shop = function () {
     // ask player what they'd like to do
     var shopOptionPrompt = window.prompt(
-        "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice.");
-
+        "Press [1] to REFILL your health for $7, [2] to UPGRADE your attack for $7, or [3] to LEAVE the store.");
+debugger;
     // use switch to carry out action
+    shopOptionPrompt = parseInt(shopOptionPrompt);
     switch (shopOptionPrompt) {
-        case "REFILL":
-        case "refill":
-        case "R":
-        case "r":
+        case 1:
             playerInfo.refillHealth();
             break;
 
-        case "UPGRADE":
-        case "upgrade":
-        case "U":
-        case "u":
+        case 2:
             playerInfo.upgradeAttack()
             break;
 
-        case "LEAVE":
-        case "leave":
-        case "L":
-        case "l":
+        case 3:
             window.alert("Leaving the store.");
-
-            // do nothing, so function will end
             break;
 
         default:
             window.alert("You did not pick a valid option. Try again.");
-
-            // call shop() again to force player to pick a valid option
             shop();
-        //break;
+            break;
     }
 };
 
