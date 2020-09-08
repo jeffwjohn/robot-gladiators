@@ -7,10 +7,6 @@ A simple, text-based fighting game that transpires via alert windows.
 * HTML
 * JavaScript
 
-
-
-![Screenshot](assets/images/screenshot.png)
-
 ## Website
 https://jeffwjohn.github.io/robot-gladiators/
 
