@@ -12,7 +12,7 @@ A simple, text-based fighting game that transpires via alert windows.
 ![Screenshot](assets/images/screenshot.png)
 
 ## Website
-https://jeffwjohn.github.io/weather-dashboard/
+https://jeffwjohn.github.io/robot-gladiators/
 
 ## Contribution
 Made with ❤️ by Jeff Johnston
